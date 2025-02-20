@@ -1,0 +1,48 @@
+{
+    "model": "transformer_encoder_mlp",
+    "dataset_func": "tfrecord",
+    "parse_func": "sequence_parse",
+    "dropout": 0.1,
+    "callbacks": [
+        "model_output",
+        "csv_logger",
+        "write_out"
+    ],
+    "n_classes": 18,
+    "num_elayers": 6,
+    "num_heads": 6,
+    "eseq_len": 19,
+    "embed_dim": 6,
+    "batch": 1028,
+    "epochs": 200,
+    "learning_rate": 0.0001,
+    "optimizer": "adam",
+    "custom_metric": "masked_accuracy",
+    "custom_loss_func": "masked_categorical_focal_loss",
+    "sheduler": true,
+    "restore": false,
+    "finetune": false,
+    "seed": 42,
+    "train_root": [
+        "./sparta/train/h24v13",
+        "./sparta/train/h03v10",
+        "./sparta/train/h20v08",
+        "./sparta/train/h04v01",
+        "./sparta/train/h13v13"
+    ],
+    "val_root": [
+        "./sparta/val/h24v13",
+        "./sparta/val/h03v10",
+        "./sparta/val/h20v08",
+        "./sparta/val/h04v01",
+        "./sparta/val/h13v13"
+
+    ],
+    "output": "./models/sparta",
+    "model_out": "transformer_encoder_mlp",
+    "epoch": 0.0,
+    "loss": 1.8829494714736936,
+    "masked_accuracy": 0.2729057371616363,
+    "val_loss": 1.7382858991622925,
+    "val_masked_accuracy": 0.2835181951522827
+}

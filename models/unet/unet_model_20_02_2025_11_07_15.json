@@ -1,0 +1,58 @@
+{
+    "model": "unet_model",
+    "dataset_func": "tfrecord_onehot",
+    "parse_func": "chip_parse",
+    "sample_func": "chip_one_hot",
+    "augmentation_func": "segmentation_augmentation",
+    "dropouts": [
+        0,
+        0,
+        0.2,
+        0.3,
+        0.3,
+        0,
+        0.3,
+        0,
+        0
+    ],
+    "callbacks": [
+        "model_output",
+        "csv_logger",
+        "write_out",
+        "reduce_lr"
+    ],
+    "shape": [
+        [
+            256,
+            256,
+            6
+        ],
+        [
+            256,
+            256,
+            18
+        ]
+    ],
+    "n_classes": 18,
+    "batch_norm": true,
+    "filters": 64,
+    "batch": 32,
+    "epochs": 200,
+    "learning_rate": 0.01,
+    "optimizer": "adam",
+    "custom_metric": "iou_score",
+    "custom_loss_func": "categorical_focal_jaccard_loss",
+    "patience": 3,
+    "restore": false,
+    "finetune": false,
+    "seed": 42,
+    "train_root": "./unet/train",
+    "val_root": "./unet/val",
+    "output": "./models/unet",
+    "model_out": "unet_model",
+    "epoch": 0.0,
+    "iou_score": 0.092053934931755,
+    "loss": 0.9324083924293518,
+    "val_iou_score": 0.0295801702886819,
+    "val_loss": 1.000501275062561
+}
