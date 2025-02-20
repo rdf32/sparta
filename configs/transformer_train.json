@@ -1,0 +1,42 @@
+{
+    "model": "transformer_encoder_mlp",
+    "dataset_func": "tfrecord",
+    "parse_func": "sequence_parse",
+    "dropout": 0.1,
+    "callbacks": [
+        "model_output",
+        "csv_logger",
+        "write_out"
+    ],
+    "n_classes": 18,
+    "num_elayers": 6,
+    "num_heads": 6,
+    "eseq_len": 19,
+    "embed_dim": 6,
+    "batch": 1028,
+    "epochs": 200,
+    "learning_rate": 0.0001,
+    "optimizer": "adam",
+    "custom_metric": "masked_accuracy",
+    "custom_loss_func": "masked_categorical_focal_loss",
+    "sheduler": true,
+    "restore": false,
+    "finetune": false,
+    "seed": 42,
+    "train_root": [
+        "./transformer/train/h24v13",
+        "./transformer/train/h03v10",
+        "./transformer/train/h20v08",
+        "./transformer/train/h04v01",
+        "./transformer/train/h13v13"
+    ],
+    "val_root": [
+        "./transformer/val/h24v13",
+        "./transformer/val/h03v10",
+        "./transformer/val/h20v08",
+        "./transformer/val/h04v01",
+        "./transformer/val/h13v13"
+
+    ],
+    "output": "./models/transformer"
+}

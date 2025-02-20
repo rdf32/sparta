@@ -1,0 +1,42 @@
+{
+    "model": "transformer_encoder_mlp",
+    "dataset_func": "tfrecord",
+    "parse_func": "sequence_parse",
+
+    "dropout": 0.1,
+    "callbacks": ["model_output", "csv_logger", "write_out"],
+    "n_classes": 18,
+    "num_elayers": 6,
+    "num_heads": 6, 
+    "eseq_len": 19,
+    "embed_dim": 6,
+    "batch": 1028,
+    "epochs": 200,
+    "learning_rate": 1e-4,
+    "optimizer": "adam",
+    "custom_metric": "masked_accuracy",
+    "custom_loss_func": "masked_categorical_focal_loss",
+    "sheduler": true,
+    "restore": false,
+    "finetune": false,
+    "seed": 42,
+
+    "output": "./transformer/preds",
+    "spectral": {
+        "paths": {
+            "leafon": "./leafon{year}.tif"
+        }
+    },
+
+    "models" : {
+        "tformer": {
+            "all": [
+                "./transformer/model/transformer_encoder_09_10_2024_18_06_05.h5"
+            ]
+        }
+    },
+    "nodata": -9999,
+    "scaling": {"leaf_on": "collection-1"},
+    "htile": 500,
+    "train_seqlen": 19
+}

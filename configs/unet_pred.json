@@ -1,0 +1,24 @@
+{
+    "experiment": "001",
+    "date": "12/26/23",
+    "main": "./preds",
+    "output": "./preds",
+    "scaling": {"leaf_on": "collection-1"},
+    "nodata": -9999,
+    "coloff": 3,
+    "rowoff": 3,
+    "pchip": 5,
+    "htile": 500,
+
+    "tile": 256,    
+    "spectral": {
+        "paths": {
+            "leafon": "./data/leafon{year}.tif"
+        }
+    },
+
+    "models" : {
+        "unets": ["./unet/models/unet_model_07_10_2024_13_15_15.h5"]
+        }
+}
+
